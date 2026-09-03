@@ -293,7 +293,7 @@
     /* Interactive Demo Showcase */
     .showcase-grid {
       display: grid;
-      grid-template-columns: 440px 1fr;
+      grid-template-columns: 420px 1fr;
       gap: 40px;
       align-items: start;
     }
@@ -314,15 +314,15 @@
 
     .phone-toolbar {
       width: 100%;
-      max-width: 402px;
+      max-width: 375px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 10px 16px;
-      background: rgba(15, 23, 42, 0.85);
+      padding: 10px 14px;
+      background: rgba(15, 23, 42, 0.8);
       border: 1px solid var(--border-subtle);
       border-bottom: none;
-      border-radius: 20px 20px 0 0;
+      border-radius: 16px 16px 0 0;
       font-size: 0.82rem;
       color: var(--text-muted);
     }
@@ -336,13 +336,13 @@
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid var(--border-subtle);
       color: var(--text-main);
-      padding: 5px 12px;
-      border-radius: 8px;
+      padding: 4px 10px;
+      border-radius: 6px;
       font-size: 0.76rem;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 5px;
+      gap: 4px;
       transition: all 0.2s;
     }
 
@@ -351,13 +351,12 @@
       border-color: var(--primary);
     }
 
-    /* Exact iPhone 16 Pro Dimensions (402px x 874px) with Titanium Bezels */
     .phone-frame {
       width: 100%;
-      max-width: 402px;
-      height: 874px;
-      background: #ffffff;
-      border-radius: 0 0 54px 54px;
+      max-width: 375px;
+      height: 740px;
+      background: #000000;
+      border-radius: 0 0 42px 42px;
       box-shadow: 
         0 0 0 10px #1e293b,
         0 0 0 12px #334155,
@@ -366,50 +365,25 @@
       position: relative;
       overflow: hidden;
       border: 1px solid rgba(255, 255, 255, 0.1);
-      display: flex;
-      flex-direction: column;
     }
 
-    /* iPhone 16 Pro Status Bar */
-    .phone-status-bar {
-      height: 48px;
-      min-height: 48px;
-      background: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 24px;
-      position: relative;
-      z-index: 50;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-      user-select: none;
-    }
-
-    .status-time {
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", sans-serif;
-      font-weight: 600;
-      font-size: 0.92rem;
-      color: #0f172a;
-      letter-spacing: -0.02em;
-    }
-
-    /* iPhone 16 Pro Dynamic Island */
+    /* Dynamic Island */
     .dynamic-island {
       position: absolute;
-      top: 9px;
+      top: 10px;
       left: 50%;
       transform: translateX(-50%);
-      width: 120px;
-      height: 32px;
+      width: 110px;
+      height: 26px;
       background: #000000;
       border-radius: 20px;
       z-index: 100;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 10px;
+      padding: 0 8px;
       pointer-events: none;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
     }
 
     .island-camera {
@@ -427,56 +401,11 @@
       background: #0a0f1d;
     }
 
-    .status-icons {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      color: #0f172a;
-    }
-
-    .status-svg {
-      width: 15px;
-      height: 15px;
-      fill: currentColor;
-    }
-
-    /* Main Phone Screen Container */
-    .phone-screen-container {
-      flex: 1;
-      width: 100%;
-      position: relative;
-      overflow: hidden;
-      background: #ffffff;
-    }
-
     .phone-screen {
       width: 100%;
       height: 100%;
       border: none;
-      background: #ffffff;
-      display: block;
-    }
-
-    /* Bottom Safe Area with Home Indicator */
-    .phone-bottom-bar {
-      height: 24px;
-      min-height: 24px;
-      background: #ffffff;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 50;
-      user-select: none;
-      border-top: 1px solid rgba(0, 0, 0, 0.03);
-    }
-
-    .home-indicator {
-      width: 134px;
-      height: 5px;
-      background: #0f172a;
-      opacity: 0.35;
-      border-radius: 100px;
+      background: #0d1117;
     }
 
     /* Feature Tabs & Explanations */
@@ -892,29 +821,11 @@
               </div>
             </div>
             <div class="phone-frame">
-              <!-- Top Status Bar with Dynamic Island -->
-              <div class="phone-status-bar">
-                <span class="status-time">9:41</span>
-                <div class="dynamic-island">
-                  <div class="island-camera"></div>
-                  <div class="island-sensor"></div>
-                </div>
-                <div class="status-icons">
-                  <svg class="status-svg" viewBox="0 0 24 24"><path fill="currentColor" d="M2 17h3v4H2v-4zm6-5h3v9H8v-9zm6-5h3v14h-3V7zm6-5h3v19h-3V2z"/></svg>
-                  <svg class="status-svg" viewBox="0 0 24 24"><path fill="currentColor" d="M12 4C7.31 4 3.07 5.9 0 8.98L12 21 24 8.98A16.88 16.88 0 0 0 12 4zm0 4c3.48 0 6.64 1.34 9 3.54L12 19.5 3 11.54A12.92 12.92 0 0 1 12 8z"/></svg>
-                  <svg class="status-svg" style="width:20px;height:12px;" viewBox="0 0 24 24"><rect x="2" y="6" width="17" height="12" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><rect x="4" y="8" width="10" height="8" rx="1.5" fill="currentColor"/><path d="M21 10v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                </div>
+              <div class="dynamic-island">
+                <div class="island-camera"></div>
+                <div class="island-sensor"></div>
               </div>
-
-              <!-- Main Screen Viewport -->
-              <div class="phone-screen-container">
-                <iframe id="app-frame" src="demo.html?t=initial" class="phone-screen" title="SkyLoft Interactive App"></iframe>
-              </div>
-
-              <!-- Bottom Bar with iOS Home Indicator -->
-              <div class="phone-bottom-bar">
-                <div class="home-indicator"></div>
-              </div>
+              <iframe id="app-frame" src="demo.html?t=initial" class="phone-screen" title="SkyLoft Interactive App"></iframe>
             </div>
           </div>
 
