@@ -65,6 +65,14 @@
 
     <script>
       (function() {
+        // Normalize pathname for Expo Router so it mounts root route '/' instead of '/demo.html'
+        if (window.location.pathname.endsWith('/demo.html') || window.location.pathname === '/demo.html') {
+          try {
+            var target = window.location.pathname.replace(/\/demo\.html$/, '/') + (window.location.search || '') + (window.location.hash || '');
+            window.history.replaceState(null, '', target);
+          } catch(e) {}
+        }
+
         var path = window.location.pathname;
         var dir = path.substring(0, path.lastIndexOf('/') + 1);
         window.__PUBLIC_PATH__ = dir;
