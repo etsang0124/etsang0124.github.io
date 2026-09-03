@@ -2,14 +2,14 @@
 
 > Live, interactive portfolio showcasing **SkyLoft** and other systems engineering projects.
 
-Hosted on GitHub Pages at: [https://elvintsang.github.io](https://elvintsang.github.io)
+Hosted on GitHub Pages at: [https://etsang0124.github.io](https://etsang0124.github.io)
 
 ## 📱 What's Included
 
 - **`index.html`**: The portfolio homepage featuring an interactive iPhone 16 Pro simulator running the live SkyLoft app, architecture deep-dives, skill taxonomy, and project cards.
 - **`demo.html`**: Standalone fullscreen build of the SkyLoft React Native Web application.
 - **`_expo/` & `assets/`**: Production-optimized Webpack/Metro bundles and asset pipeline for the interactive app.
-- **`PROFILE_README.md`**: Markdown for the special GitHub Profile repository (`github.com/elvintsang`).
+- **`PROFILE_README.md`**: Markdown for the special GitHub Profile repository (`github.com/etsang0124`).
 - **`DEPLOYMENT_GUIDE.md`**: Step-by-step instructions to deploy to GitHub Pages in 2 minutes.
 
 ## 🛠️ Stack & Architecture
@@ -18,3 +18,4 @@ Hosted on GitHub Pages at: [https://elvintsang.github.io](https://elvintsang.git
 - **Backend Architecture**: Python 3, Flask REST API, 3-Tier Property/Unit/Listing Data Model, Zero-Trust Storage.
 - **Data & Recommendation**: Multi-objective ranking (`fit_score`), MTA transit decay curves, behavioral cohort priors.
 - **Crawler & Staging**: Automated official-site property scraper, HTML AST parser, schema validation in SQLite.
+

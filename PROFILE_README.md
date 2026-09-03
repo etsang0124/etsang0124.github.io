@@ -4,20 +4,20 @@
 role: Full-Stack & Mobile Systems Engineer
 focus: [React Native / Expo, Python Backend Architectures, RecSys, Automated Data Pipelines]
 location: New York / Remote
-portfolio: https://elvintsang.github.io
+portfolio: https://etsang0124.github.io
 ```
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-SkyLoft_App-38bdf8?style=for-the-badge&logo=expo&logoColor=white)](https://elvintsang.github.io)
-[![Portfolio](https://img.shields.io/badge/Portfolio_Website-elvintsang.github.io-818cf8?style=for-the-badge&logo=googlechrome&logoColor=white)](https://elvintsang.github.io)
-[![GitHub](https://img.shields.io/badge/GitHub-elvintsang-10b981?style=for-the-badge&logo=github&logoColor=white)](https://github.com/elvintsang)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-SkyLoft_App-38bdf8?style=for-the-badge&logo=expo&logoColor=white)](https://etsang0124.github.io)
+[![Portfolio](https://img.shields.io/badge/Portfolio_Website-etsang0124.github.io-818cf8?style=for-the-badge&logo=googlechrome&logoColor=white)](https://etsang0124.github.io)
+[![GitHub](https://img.shields.io/badge/GitHub-elvintsang-10b981?style=for-the-badge&logo=github&logoColor=white)](https://github.com/etsang0124)
 
 ---
 
-### 🚀 Flagship Platform: [SkyLoft](https://elvintsang.github.io)
+### 🚀 Flagship Platform: [SkyLoft](https://etsang0124.github.io)
 > **An end-to-end luxury residential rental marketplace & transactional engine.**  
 > *Connecting renters, direct landlords, and verification staff with zero broker fees.*
 
-👉 **[Launch the Interactive App Simulator on GitHub Pages](https://elvintsang.github.io)** *(or [Fullscreen App](https://elvintsang.github.io/demo.html))*
+👉 **[Launch the Interactive App Simulator on GitHub Pages](https://etsang0124.github.io)** *(or [Fullscreen App](https://etsang0124.github.io/demo.html))*
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -55,11 +55,11 @@ portfolio: https://elvintsang.github.io
 
 ### 📂 Other Selected Projects
 
-#### ⚡ [Distributed Task & Queue Worker Pipeline](https://github.com/elvintsang)
+#### ⚡ [Distributed Task & Queue Worker Pipeline](https://github.com/etsang0124)
 * High-concurrency distributed job processing engine with prioritized queues, dead-letter storage, exponential backoff retries, and Prometheus operational telemetry.
 * **Stack**: `Python`, `Redis`, `Docker`, `AsyncIO`, `Prometheus`
 
-#### 🌐 [Real-Time State Synchronization Engine](https://github.com/elvintsang)
+#### 🌐 [Real-Time State Synchronization Engine](https://github.com/etsang0124)
 * Low-latency multi-client state sync engine supporting conflict-free document editing (CRDTs), room-based client presence, and bidirectional WebSocket streams.
 * **Stack**: `TypeScript`, `WebSockets`, `Node.js`, `React`
 
@@ -68,14 +68,15 @@ portfolio: https://elvintsang.github.io
 ### 📊 GitHub Activity & Metrics
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=elvintsang&show_icons=true&theme=tokyonight&hide_border=true&bg_color=090d16" alt="Elvin Tsang's GitHub Stats" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=elvintsang&layout=compact&theme=tokyonight&hide_border=true&bg_color=090d16" alt="Top Languages" />
+  <img src="https://github-readme-stats.vercel.app/api?username=etsang0124&show_icons=true&theme=tokyonight&hide_border=true&bg_color=090d16" alt="Elvin Tsang's GitHub Stats" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=etsang0124&layout=compact&theme=tokyonight&hide_border=true&bg_color=090d16" alt="Top Languages" />
 </div>
 
 ---
 
 ### 📬 Connect with Me
 
-- 🌐 **Live Portfolio & App**: [elvintsang.github.io](https://elvintsang.github.io)
+- 🌐 **Live Portfolio & App**: [etsang0124.github.io](https://etsang0124.github.io)
 - 💼 **LinkedIn**: [linkedin.com/in/elvintsang](https://linkedin.com/in/elvintsang)
-- 🐙 **GitHub**: [@elvintsang](https://github.com/elvintsang)
+- 🐙 **GitHub**: [@etsang0124](https://github.com/etsang0124)
+
