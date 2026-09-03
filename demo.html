@@ -5,6 +5,25 @@
     <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, user-scalable=no" />
     <title>SkyLoft — Interactive Web App</title>
+    <script>
+      window.__LOGS__ = [];
+      var origErr = console.error;
+      console.error = function() {
+        window.__LOGS__.push(['console.error', Array.from(arguments).map(function(x) { return String(x && x.stack || x); })]);
+        if (origErr) origErr.apply(console, arguments);
+      };
+      var origWarn = console.warn;
+      console.warn = function() {
+        window.__LOGS__.push(['console.warn', Array.from(arguments).map(function(x) { return String(x && x.stack || x); })]);
+        if (origWarn) origWarn.apply(console, arguments);
+      };
+      window.addEventListener('error', function(e) {
+        window.__LOGS__.push(['window.error', e.message, e.filename, e.lineno, e.colno, e.error ? e.error.stack : '']);
+      });
+      window.addEventListener('unhandledrejection', function(e) {
+        window.__LOGS__.push(['unhandledrejection', String(e.reason && e.reason.stack || e.reason)]);
+      });
+    </script>
     <!-- React Native Web recommended reset -->
     <style id="expo-reset">
       html, body {

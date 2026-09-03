@@ -326,41 +326,34 @@
       margin-top: 36px;
     }
 
-    /* iPhone Frame Mockup */
-    .phone-simulator-wrapper {
-      position: relative;
+    .simulator-box {
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
-    .phone-toolbar {
+    .simulator-toolbar {
       width: 100%;
       max-width: 375px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 10px 14px;
-      background: rgba(15, 23, 42, 0.8);
+      background: rgba(15, 23, 42, 0.85);
       border: 1px solid var(--border-subtle);
       border-bottom: none;
       border-radius: 16px 16px 0 0;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       color: var(--text-muted);
     }
 
-    .phone-toolbar .actions {
-      display: flex;
-      gap: 8px;
-    }
-
-    .phone-btn {
+    .sim-btn {
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid var(--border-subtle);
       color: var(--text-main);
       padding: 4px 10px;
       border-radius: 6px;
-      font-size: 0.76rem;
+      font-size: 0.74rem;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
@@ -368,12 +361,12 @@
       transition: all 0.2s;
     }
 
-    .phone-btn:hover {
+    .sim-btn:hover {
       background: rgba(255, 255, 255, 0.16);
       border-color: var(--primary);
     }
 
-    .phone-frame {
+    .phone-chassis {
       width: 100%;
       max-width: 375px;
       height: 740px;
@@ -389,7 +382,6 @@
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    /* Dynamic Island */
     .dynamic-island {
       position: absolute;
       top: 10px;
@@ -408,7 +400,7 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.5);
     }
 
-    .island-camera {
+    .island-lens {
       width: 10px;
       height: 10px;
       border-radius: 50%;
@@ -416,7 +408,7 @@
       border: 1px solid #1f2937;
     }
 
-    .island-sensor {
+    .island-dot {
       width: 8px;
       height: 8px;
       border-radius: 50%;
@@ -704,31 +696,31 @@
           Eliminating the <span class="gradient-text">3x Upfront Rent Barrier</span> in New York City.
         </h1>
         <p class="hero-subtitle">
-          In New York City, moving into a standard ,400 1-bedroom apartment requires over <strong>,000 in upfront cash</strong> due to an archaic 15% middleman broker fee. SkyLoft replaces commission-driven brokers with direct transactions and a transit-decay matching engine—cutting upfront move-in cash by <strong>47%</strong>.
+          In New York City, moving into a standard $3,400 1-bedroom apartment requires over <strong>$12,000 in upfront cash</strong> due to an archaic 15% middleman broker fee. SkyLoft replaces commission-driven brokers with direct transactions and a transit-decay matching engine—cutting upfront move-in cash by <strong>47%</strong>.
         </p>
 
         <div class="comparison-grid">
           <div class="comp-card negative">
             <div class="comp-header">
               <span class="comp-label" style="color: var(--accent-red);">Traditional NYC Broker Model</span>
-              <span class="comp-total" style="color: var(--accent-red);">,920</span>
+              <span class="comp-total" style="color: var(--accent-red);">$12,920</span>
             </div>
             <div class="comp-rows">
               <div class="comp-row">
                 <span>First Month Rent</span>
-                <span>,400</span>
+                <span>$3,400</span>
               </div>
               <div class="comp-row">
                 <span>Security Deposit (1 Month)</span>
-                <span>,400</span>
+                <span>$3,400</span>
               </div>
               <div class="comp-row" style="color: var(--accent-red); font-weight: 600;">
                 <span>Broker Commission (15% Annual)</span>
-                <span>+,120</span>
+                <span>+$6,120</span>
               </div>
               <div class="comp-row highlight">
                 <span>Total Cash Due at Lease Signing</span>
-                <span>,920</span>
+                <span>$12,920</span>
               </div>
             </div>
           </div>
@@ -736,24 +728,24 @@
           <div class="comp-card positive">
             <div class="comp-header">
               <span class="comp-label" style="color: var(--accent-green);">SkyLoft Direct Transaction</span>
-              <span class="comp-total" style="color: var(--accent-green);">,825</span>
+              <span class="comp-total" style="color: var(--accent-green);">$6,825</span>
             </div>
             <div class="comp-rows">
               <div class="comp-row">
                 <span>First Month Rent</span>
-                <span>,400</span>
+                <span>$3,400</span>
               </div>
               <div class="comp-row">
                 <span>Security Deposit (HSTPA Capped)</span>
-                <span>,400</span>
+                <span>$3,400</span>
               </div>
               <div class="comp-row" style="color: var(--accent-green); font-weight: 600;">
                 <span>Broker Commission</span>
-                <span>/bin/zsh</span>
+                <span>$0</span>
               </div>
               <div class="comp-row highlight">
                 <span>Total Cash Due at Lease Signing</span>
-                <span>,825 <strong style="color:var(--accent-green); font-size: 0.85rem;">(-47% Saved)</strong></span>
+                <span>$6,825 <strong style="color:var(--accent-green); font-size: 0.85rem;">(-47% Saved)</strong></span>
               </div>
             </div>
           </div>
@@ -770,27 +762,26 @@
         </p>
 
         <div class="prototype-grid">
-          <!-- Phone Mockup Frame -->
-          <div class="phone-simulator-wrapper">
-            <div class="phone-toolbar">
+          <div class="simulator-box">
+            <div class="simulator-toolbar">
               <span style="font-weight: 600;">iPhone 16 Pro Simulator</span>
-              <div class="actions">
-                <button class="phone-btn" onclick="restartDemo()" title="Reload Demo State">
+              <div style="display: flex; gap: 8px;">
+                <button class="sim-btn" onclick="restartDemo()" title="Reset Simulator">
                   <svg style="width:12px;height:12px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
                   Reset
                 </button>
-                <a href="demo.html" target="_blank" class="phone-btn" title="Open Fullscreen in New Tab">
+                <a href="demo.html" target="_blank" class="sim-btn" title="Open Fullscreen in New Tab">
                   <svg style="width:12px;height:12px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
                   Fullscreen
                 </a>
               </div>
             </div>
-            <div class="phone-frame">
+            <div class="phone-chassis">
               <div class="dynamic-island">
-                <div class="island-camera"></div>
-                <div class="island-sensor"></div>
+                <div class="island-lens"></div>
+                <div class="island-dot"></div>
               </div>
-              <iframe id="app-frame" src="demo.html?t=initial" class="phone-screen" title="SkyLoft Interactive App"></iframe>
+              <iframe id="app-frame" src="demo.html" class="phone-screen" title="SkyLoft Interactive App"></iframe>
             </div>
           </div>
 
@@ -814,8 +805,8 @@
             <div class="flow-step-card">
               <div class="step-number">03</div>
               <div class="step-content">
-                <h3>Transparent Pricing & /bin/zsh Broker Fee</h3>
-                <p>Listing details compute transparent all-in move-in totals (first month + 1-month deposit capped by NY HSTPA). Guarantees /bin/zsh broker commissions directly in code.</p>
+                <h3>Transparent Pricing & $0 Broker Fee</h3>
+                <p>Listing details compute transparent all-in move-in totals (first month + 1-month deposit capped by NY HSTPA). Guarantees $0 broker commissions directly in code.</p>
               </div>
             </div>
 
@@ -872,16 +863,16 @@
         <span class="section-tag">Market Economics & Financial Returns</span>
         <h2 class="section-title">Business Model, Unit Economics & EBITDA Projections</h2>
         <p class="section-desc">
-          Disintermediating NYC's .2B broker commission pool with scalable software economics. The NYC FARE Act (effective 2025) shifts broker costs to landlords, creating an urgent commercial catalyst for direct listing platforms.
+          Disintermediating NYC's $1.2B broker commission pool with scalable software economics. The NYC FARE Act (effective 2025) shifts broker costs to landlords, creating an urgent commercial catalyst for direct listing platforms.
         </p>
 
         <div class="metrics-summary-strip">
           <div class="metric-card">
-            <div class="metric-val green">,120</div>
+            <div class="metric-val green">$6,120</div>
             <div class="metric-name">Average Renter Move-In Savings</div>
           </div>
           <div class="metric-card">
-            <div class="metric-val"></div>
+            <div class="metric-val">$350</div>
             <div class="metric-name">Platform Fee per Leased Unit</div>
           </div>
           <div class="metric-card">
@@ -913,39 +904,39 @@
               </tr>
               <tr>
                 <td><strong>Gross Merchandise Volume (GMV Annual Rent)</strong></td>
-                <td>,200,000</td>
-                <td>,400,000</td>
-                <td>,000,000</td>
+                <td>$61,200,000</td>
+                <td>$224,400,000</td>
+                <td>$612,000,000</td>
               </tr>
               <tr>
-                <td><strong>Platform Revenue ( listing fee +  screening)</strong></td>
-                <td>,500</td>
-                <td>,062,500</td>
-                <td>,625,000</td>
+                <td><strong>Platform Revenue ($350 listing fee + $25 screening)</strong></td>
+                <td>$562,500</td>
+                <td>$2,062,500</td>
+                <td>$5,625,000</td>
               </tr>
               <tr>
                 <td><strong>Cost of Goods Sold (Cloud hosting, ID/KYC API, payment gateway)</strong></td>
-                <td>(,000)</td>
-                <td>(,000)</td>
-                <td>(,000)</td>
+                <td>($78,000)</td>
+                <td>($268,000)</td>
+                <td>($731,000)</td>
               </tr>
               <tr>
                 <td><strong>Gross Profit (Gross Margin %)</strong></td>
-                <td>,500 (86%)</td>
-                <td>,794,500 (87%)</td>
-                <td>,894,000 (87%)</td>
+                <td>$484,500 (86%)</td>
+                <td>$1,794,500 (87%)</td>
+                <td>$4,894,000 (87%)</td>
               </tr>
               <tr>
                 <td><strong>Operating Expenses (Engineering, campus marketing, operations)</strong></td>
-                <td>(,000)</td>
-                <td>(,150,000)</td>
-                <td>(,650,000)</td>
+                <td>($360,000)</td>
+                <td>($1,150,000)</td>
+                <td>($2,650,000)</td>
               </tr>
               <tr class="highlight-row">
                 <td><strong>EBITDA ($ / Margin %)</strong></td>
-                <td>,500 (22.1%)</td>
-                <td>,500 (31.2%)</td>
-                <td>,244,000 (39.9%)</td>
+                <td>$124,500 (22.1%)</td>
+                <td>$644,500 (31.2%)</td>
+                <td>$2,244,000 (39.9%)</td>
               </tr>
             </tbody>
           </table>
