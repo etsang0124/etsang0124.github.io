@@ -825,7 +825,7 @@
                 <div class="island-camera"></div>
                 <div class="island-sensor"></div>
               </div>
-              <iframe id="app-frame" src="demo.html" class="phone-screen" title="SkyLoft Interactive App"></iframe>
+              <iframe id="app-frame" src="demo.html?t=initial" class="phone-screen" title="SkyLoft Interactive App"></iframe>
             </div>
           </div>
 
@@ -1190,6 +1190,11 @@
         frame.src = 'demo.html?t=' + Date.now();
       }
     }
+
+    // Ensure initial load matches the Reset action that reliably bypasses stale cache
+    window.addEventListener('DOMContentLoaded', function() {
+      restartDemo();
+    });
   </script>
 </body>
 </html>
