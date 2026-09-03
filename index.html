@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elvin Tsang — Full-Stack & Mobile Systems Engineer</title>
+  <meta name="description" content="Portfolio of Elvin Tsang — Full-Stack & Mobile Systems Engineer. Featuring SkyLoft, an interactive React Native & Python rental platform." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-base: #090d16;
+      --bg-surface: #0f172a;
+      --bg-card: rgba(15, 23, 42, 0.75);
+      --bg-card-hover: rgba(30, 41, 59, 0.85);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(56, 189, 248, 0.35);
+      --primary: #38bdf8;
+      --primary-glow: rgba(56, 189, 248, 0.25);
+      --accent: #818cf8;
+      --accent-green: #34d399;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-display: 'Manrope', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      color-scheme: dark;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      font-family: var(--font-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 15% 10%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 35%, rgba(129, 140, 248, 0.07) 0%, transparent 45%),
+        radial-gradient(circle at 50% 80%, rgba(52, 211, 153, 0.05) 0%, transparent 50%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Navigation */
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      background: rgba(9, 13, 22, 0.82);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: all 0.2s ease;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-badge {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #090d16;
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.95rem;
+      box-shadow: 0 0 16px var(--primary-glow);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), #2563eb);
+      color: #ffffff;
+      box-shadow: 0 4px 18px rgba(56, 189, 248, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 24px rgba(56, 189, 248, 0.5);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 90px 0 60px;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(52, 211, 153, 0.1);
+      border: 1px solid rgba(52, 211, 153, 0.3);
+      color: var(--accent-green);
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--accent-green);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--accent-green);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.3); opacity: 0.6; }
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+
+    .hero-title .gradient-text {
+      background: linear-gradient(135deg, #ffffff 30%, var(--primary) 70%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      color: var(--text-muted);
+      max-width: 720px;
+      margin-bottom: 36px;
+      line-height: 1.6;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 50px;
+    }
+
+    .stats-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      padding: 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      backdrop-filter: blur(12px);
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: -0.02em;
+    }
+
+    .stat-label {
+      font-size: 0.84rem;
+      color: var(--text-dim);
+      font-weight: 500;
+    }
+
+    /* Section Header */
+    .section-header {
+      margin-bottom: 40px;
+    }
+
+    .section-tag {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 680px;
+      margin-top: 8px;
+    }
+
+    /* Interactive Demo Showcase */
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    @media (max-width: 992px) {
+      .showcase-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* iPhone Frame Mockup */
+    .phone-simulator-wrapper {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .phone-toolbar {
+      width: 100%;
+      max-width: 375px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid var(--border-subtle);
+      border-bottom: none;
+      border-radius: 16px 16px 0 0;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .phone-toolbar .actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .phone-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.76rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.2s;
+    }
+
+    .phone-btn:hover {
+      background: rgba(255, 255, 255, 0.16);
+      border-color: var(--primary);
+    }
+
+    .phone-frame {
+      width: 100%;
+      max-width: 375px;
+      height: 740px;
+      background: #000000;
+      border-radius: 0 0 42px 42px;
+      box-shadow: 
+        0 0 0 10px #1e293b,
+        0 0 0 12px #334155,
+        0 25px 60px -15px rgba(0, 0, 0, 0.8),
+        0 0 35px rgba(56, 189, 248, 0.2);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Dynamic Island */
+    .dynamic-island {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 110px;
+      height: 26px;
+      background: #000000;
+      border-radius: 20px;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 8px;
+      pointer-events: none;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+
+    .island-camera {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #111827;
+      border: 1px solid #1f2937;
+    }
+
+    .island-sensor {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #0a0f1d;
+    }
+
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: #0d1117;
+    }
+
+    /* Feature Tabs & Explanations */
+    .platform-details {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .guided-tour-banner {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(129, 140, 248, 0.08));
+      border: 1px solid var(--border-accent);
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    .guided-tour-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .steps-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .step-badge {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 0.84rem;
+      color: var(--text-muted);
+    }
+
+    .step-badge strong {
+      color: var(--text-main);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* Architecture Tabs */
+    .arch-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 12px;
+    }
+
+    .arch-tab-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .arch-tab-btn.active {
+      background: rgba(56, 189, 248, 0.12);
+      border-color: var(--border-accent);
+      color: var(--primary);
+    }
+
+    .tab-content {
+      display: none;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 24px;
+      backdrop-filter: blur(12px);
+    }
+
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .tab-content h4 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .tab-content p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+
+    .tech-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .tech-pill {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    /* Key Specs Grid */
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .spec-card {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 14px;
+    }
+
+    .spec-label {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+      margin-bottom: 4px;
+    }
+
+    .spec-val {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    /* Secondary Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      backdrop-filter: blur(12px);
+      transition: all 0.25s ease;
+      position: relative;
+    }
+
+    .project-card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-4px);
+      background: var(--bg-card-hover);
+      box-shadow: 0 12px 30px -10px rgba(56, 189, 248, 0.15);
+    }
+
+    .project-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+
+    .project-title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+    }
+
+    .project-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.55;
+      margin-bottom: 20px;
+    }
+
+    .project-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .link-btn {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .link-btn:hover {
+      text-decoration: underline;
+    }
+
+    /* Skills Grid */
+    .skills-section {
+      padding: 80px 0;
+    }
+
+    .skills-category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-cat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 24px;
+      backdrop-filter: blur(12px);
+    }
+
+    .skill-cat-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-tag {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 6px 12px;
+      font-size: 0.82rem;
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    /* Footer */
+    footer.site-footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 50px 0;
+      background: rgba(9, 13, 22, 0.95);
+      margin-top: 80px;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .footer-copy {
+      color: var(--text-dim);
+      font-size: 0.88rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+
+    /* SVG Icons */
+    .icon {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a href="#" class="brand">
+        <div class="brand-badge">ET</div>
+        <span>Elvin Tsang</span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#demo">Live App</a></li>
+          <li><a href="#skyloft">Architecture</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a href="https://github.com/elvintsang" target="_blank" rel="noreferrer" class="btn btn-secondary">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a href="#demo" class="btn btn-primary">
+          ▶ Test Demo
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-badge">
+          <span class="pulse-dot"></span>
+          <span>Full-Stack & Mobile Systems Engineer</span>
+        </div>
+        <h1 class="hero-title">
+          Engineering scalable platforms with <span class="gradient-text">production precision</span>.
+        </h1>
+        <p class="hero-subtitle">
+          Specializing in high-performance native mobile architectures (React Native / Expo), robust Python backend APIs, zero-trust security workflows, and automated web data pipelines.
+        </p>
+        <div class="hero-cta-group">
+          <a href="#demo" class="btn btn-primary">
+            📱 Launch Interactive App Demo
+          </a>
+          <a href="#skyloft" class="btn btn-secondary">
+            ⚡ Explore Architecture
+          </a>
+          <a href="https://github.com/elvintsang" target="_blank" rel="noreferrer" class="btn btn-secondary">
+            📁 View Repositories
+          </a>
+        </div>
+
+        <div class="stats-strip">
+          <div class="stat-item">
+            <span class="stat-num">React Native Web</span>
+            <span class="stat-label">Expo SDK 54 / Reanimated</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">3-Tier Model</span>
+            <span class="stat-label">Property → Unit → Listing</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">Zero-Trust</span>
+            <span class="stat-label">Physical Media Isolation</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">Automated Crawler</span>
+            <span class="stat-label">Evidence-Backed AST Staging</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Demo Section -->
+    <section id="demo" class="interactive-demo-section" style="padding: 70px 0;">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Flagship Interactive Experience</span>
+          <h2 class="section-title">SkyLoft — Live Interactive App</h2>
+          <p class="section-desc">
+            Interact directly with the real React Native Web build running in demo mode. Test the 3-question search questionnaire, browse curated NYC luxury apartments, and inspect the transactional application workflow.
+          </p>
+        </div>
+
+        <div class="showcase-grid">
+          <!-- Phone Mockup Frame -->
+          <div class="phone-simulator-wrapper">
+            <div class="phone-toolbar">
+              <span style="font-weight: 600;">iPhone 16 Pro Simulator</span>
+              <div class="actions">
+                <button class="phone-btn" onclick="restartDemo()" title="Reload Demo State">
+                  <svg style="width:12px;height:12px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+                  Reset
+                </button>
+                <a href="demo.html" target="_blank" class="phone-btn" title="Open Fullscreen in New Tab">
+                  <svg style="width:12px;height:12px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                  Fullscreen
+                </a>
+              </div>
+            </div>
+            <div class="phone-frame">
+              <div class="dynamic-island">
+                <div class="island-camera"></div>
+                <div class="island-sensor"></div>
+              </div>
+              <iframe id="app-frame" src="demo.html" class="phone-screen" title="SkyLoft Interactive App"></iframe>
+            </div>
+          </div>
+
+          <!-- Feature & Guided Tour Cards -->
+          <div class="platform-details" id="skyloft">
+            <div class="guided-tour-banner">
+              <div class="guided-tour-title">
+                <svg style="width:18px;height:18px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m10 15 5-3-5-3v6Z"/></svg>
+                Guided Interactive Walkthrough
+              </div>
+              <div class="steps-list">
+                <div class="step-badge">
+                  <strong>1. Onboarding</strong>
+                  Pick bedroom count, budget slider, and NYC commute destination.
+                </div>
+                <div class="step-badge">
+                  <strong>2. Ranked Feed</strong>
+                  Notice all-in pricing, net-effective rent, and transit duration badges.
+                </div>
+                <div class="step-badge">
+                  <strong>3. Listing Detail</strong>
+                  Tap any card for photos, verified amenities, and building policies.
+                </div>
+                <div class="step-badge">
+                  <strong>4. Application Hold</strong>
+                  Tap "Apply" to test the 4-step deposit and KYC document locker.
+                </div>
+              </div>
+            </div>
+
+            <!-- Architecture Tabs -->
+            <div class="arch-tabs">
+              <button class="arch-tab-btn active" onclick="switchTab('mobile')">📱 Mobile & Web App</button>
+              <button class="arch-tab-btn" onclick="switchTab('backend')">⚡ Backend & Security</button>
+              <button class="arch-tab-btn" onclick="switchTab('recsys')">🎯 RecSys & Scoring</button>
+              <button class="arch-tab-btn" onclick="switchTab('crawler')">🕷️ Data Crawler</button>
+            </div>
+
+            <!-- Mobile Tab -->
+            <div id="tab-mobile" class="tab-content active">
+              <h4>React Native Web & Expo SDK 54</h4>
+              <p>
+                A single unified codebase serving both iOS (via Expo Go / native builds) and modern web browsers. Employs file-based Expo Router navigation, native stack transitions, and custom design tokens adhering to iOS Liquid Glass aesthetics.
+              </p>
+              <div class="specs-grid">
+                <div class="spec-card">
+                  <div class="spec-label">Framework</div>
+                  <div class="spec-val">React Native 0.81 + Expo 54</div>
+                </div>
+                <div class="spec-card">
+                  <div class="spec-label">Animation</div>
+                  <div class="spec-val">Reanimated 4 + Gestures</div>
+                </div>
+                <div class="spec-card">
+                  <div class="spec-label">Typography</div>
+                  <div class="spec-val">Manrope Dynamic Tokens</div>
+                </div>
+                <div class="spec-card">
+                  <div class="spec-label">State & Auth</div>
+                  <div class="spec-val">Session Locker & RBAC</div>
+                </div>
+              </div>
+              <div class="tech-pill-row">
+                <span class="tech-pill">TypeScript 5.9</span>
+                <span class="tech-pill">Expo Router</span>
+                <span class="tech-pill">React Native Web</span>
+                <span class="tech-pill">AsyncStorage</span>
+                <span class="tech-pill">Document Picker</span>
+              </div>
+            </div>
+
+            <!-- Backend Tab -->
+            <div id="tab-backend" class="tab-content">
+              <h4>Flask Core API & Zero-Trust Media Pipeline</h4>
+              <p>
+                Engineered with a clean 3-tier Property $\to$ Unit $\to$ Listing data model. Physically separates public listing imagery from sensitive, unindexed renter KYC files (passports, pay stubs, tax records), auto-scrubbing EXIF metadata on upload.
+              </p>
+              <div class="specs-grid">
+                <div class="spec-card">
+                  <div class="spec-label">Backend Engine</div>
+                  <div class="spec-val">Python 3 + Flask API</div>
+                </div>
+                <div class="spec-card">
+                  <div class="spec-label">Data Tier</div>
+                  <div class="spec-val">SQLite (Strict Schemas)</div>
+                </div>
+                <div class="spec-card">
+                  <div class="spec-label">Security Model</div>
+                  <div class="spec-val">RBAC / Actor Context</div>
+                </div>
+                <div class="spec-card">
+                  <div class="spec-label">Media Processing</div>
+                  <div class="spec-val">Pillow EXIF / HEIC Transcode</div>
+                </div>
+              </div>
+              <div class="tech-pill-row">
+                <span class="tech-pill">Python</span>
+                <span class="tech-pill">Flask</span>
+                <span class="tech-pill">SQLite</span>
+                <span class="tech-pill">Pillow</span>
+                <span class="tech-pill">Pillow-HEIF</span>
+                <span class="tech-pill">Zero-Trust IAM</span>
+              </div>
+            </div>
+
+            <!-- RecSys Tab -->
+            <div id="tab-recsys" class="tab-content">
+              <h4>Multi-Objective Slate Recommendation Engine</h4>
+              <p>
+                Ranks inventory using price tolerance decay curves, transit travel durations to the renter's daily anchor, and behavioral cohort engagement priors. Dynamically relaxes constraints if matches are sparse without misleading the renter.
+              </p>
+              <div class="specs-grid">
+                <div class="spec-card">
+                  <div class="spec-label">Scoring Function</div>
+                  <div class="spec-val">Audit-ready fit_score()</div>
+                </div>
+                <div class="spec-card">
+                  <div class="spec-label">Commute Decay</div>
+                  <div class="spec-val">Subway / Transit Matrix</div>
+                </div>
+                <div class="spec-card">
+                  <div class="spec-label">Cohort Priors</div>
+                  <div class="spec-val">Empirical Beta Conjugates</div>
+                </div>
+                <div class="spec-card">
+                  <div class="spec-label">Slate Diversity</div>
+                  <div class="spec-val">Building Entropy Balancing</div>
+                </div>
+              </div>
+              <div class="tech-pill-row">
+                <span class="tech-pill">Ranking Math</span>
+                <span class="tech-pill">Behavioral Priors</span>
+                <span class="tech-pill">Multi-Variable Optimization</span>
+                <span class="tech-pill">Audit Trails</span>
+              </div>
+            </div>
+
+            <!-- Crawler Tab -->
+            <div id="tab-crawler" class="tab-content">
+              <h4>Official-Site Luxury Staging Pipeline</h4>
+              <p>
+                Automated data mining package crawling official NYC luxury property sites (Rockrose, Sven, Gotham Point). Parses HTML ASTs for verified floorplans, photography, and concessions with evidence-backed inspection reports into <code>mining.db</code>.
+              </p>
+              <div class="specs-grid">
+                <div class="spec-card">
+                  <div class="spec-label">Target Sites</div>
+                  <div class="spec-val">Direct Landlord Sites</div>
+                </div>
+                <div class="spec-card">
+                  <div class="spec-label">Parsing</div>
+                  <div class="spec-val">HTML AST / Schema Extraction</div>
+                </div>
+                <div class="spec-card">
+                  <div class="spec-label">Verification</div>
+                  <div class="spec-val">Evidence HTML Reports</div>
+                </div>
+                <div class="spec-card">
+                  <div class="spec-label">Safety</div>
+                  <div class="spec-val">Immutable Run Snapshots</div>
+                </div>
+              </div>
+              <div class="tech-pill-row">
+                <span class="tech-pill">Python Crawlers</span>
+                <span class="tech-pill">HTML AST Parsing</span>
+                <span class="tech-pill">Schema Validation</span>
+                <span class="tech-pill">Audit Staging</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Additional Projects Section -->
+    <section id="projects" style="padding: 70px 0; border-top: 1px solid var(--border-subtle);">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Engineering Portfolio</span>
+          <h2 class="section-title">Selected Systems & Projects</h2>
+          <p class="section-desc">
+            Production-focused software projects emphasizing clean architecture, high throughput, and developer ergonomics.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- SkyLoft Card -->
+          <div class="project-card">
+            <div>
+              <div class="project-card-header">
+                <span class="section-tag">Featured Platform</span>
+                <span class="tech-pill" style="color:var(--accent-green);">Live Demo</span>
+              </div>
+              <h3 class="project-title">SkyLoft Marketplace Engine</h3>
+              <p class="project-desc">
+                Full-stack residential rental platform with an iOS / Expo mobile app, Flask API, multi-objective recommendation engine, and zero-trust KYC verification.
+              </p>
+              <div class="tech-pill-row">
+                <span class="tech-pill">React Native</span>
+                <span class="tech-pill">Expo SDK 54</span>
+                <span class="tech-pill">Python / Flask</span>
+                <span class="tech-pill">SQLite</span>
+                <span class="tech-pill">RecSys</span>
+              </div>
+            </div>
+            <div class="project-links">
+              <a href="#demo" class="link-btn">Test Interactive App →</a>
+              <a href="demo.html" target="_blank" class="link-btn">Fullscreen View ↗</a>
+            </div>
+          </div>
+
+          <!-- Distributed Async Task Engine Card -->
+          <div class="project-card">
+            <div>
+              <div class="project-card-header">
+                <span class="section-tag">Distributed Systems</span>
+                <span class="tech-pill">Infrastructure</span>
+              </div>
+              <h3 class="project-title">Async Task & Queue Pipeline</h3>
+              <p class="project-desc">
+                High-concurrency task processing system with prioritized queues, dead-letter storage, exponential backoff retries, and comprehensive telemetry.
+              </p>
+              <div class="tech-pill-row">
+                <span class="tech-pill">Python</span>
+                <span class="tech-pill">Redis</span>
+                <span class="tech-pill">Docker</span>
+                <span class="tech-pill">AsyncIO</span>
+                <span class="tech-pill">Prometheus</span>
+              </div>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/elvintsang" target="_blank" rel="noreferrer" class="link-btn">View on GitHub ↗</a>
+            </div>
+          </div>
+
+          <!-- Real-time Collaboration Engine Card -->
+          <div class="project-card">
+            <div>
+              <div class="project-card-header">
+                <span class="section-tag">Real-Time Web</span>
+                <span class="tech-pill">Networking</span>
+              </div>
+              <h3 class="project-title">Real-Time State Sync Engine</h3>
+              <p class="project-desc">
+                Low-latency multi-client state synchronization engine supporting conflict-free document editing, room-based presence, and WebSocket streams.
+              </p>
+              <div class="tech-pill-row">
+                <span class="tech-pill">TypeScript</span>
+                <span class="tech-pill">WebSockets</span>
+                <span class="tech-pill">Node.js</span>
+                <span class="tech-pill">CRDT</span>
+                <span class="tech-pill">React</span>
+              </div>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/elvintsang" target="_blank" rel="noreferrer" class="link-btn">View on GitHub ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Capabilities</span>
+          <h2 class="section-title">Technical Skills & Tooling</h2>
+        </div>
+
+        <div class="skills-category-grid">
+          <div class="skill-cat-card">
+            <h3 class="skill-cat-title">Languages</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">TypeScript</span>
+              <span class="skill-tag">Python 3</span>
+              <span class="skill-tag">JavaScript (ESNext)</span>
+              <span class="skill-tag">SQL</span>
+              <span class="skill-tag">HTML5 / CSS3</span>
+              <span class="skill-tag">Bash / Zsh</span>
+            </div>
+          </div>
+
+          <div class="skill-cat-card">
+            <h3 class="skill-cat-title">Mobile & Frontend</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">React Native</span>
+              <span class="skill-tag">Expo SDK 54</span>
+              <span class="skill-tag">React 19</span>
+              <span class="skill-tag">Expo Router</span>
+              <span class="skill-tag">Reanimated 4</span>
+              <span class="skill-tag">React Native Web</span>
+              <span class="skill-tag">Gesture Handler</span>
+            </div>
+          </div>
+
+          <div class="skill-cat-card">
+            <h3 class="skill-cat-title">Backend & APIs</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Flask</span>
+              <span class="skill-tag">Django</span>
+              <span class="skill-tag">RESTful APIs</span>
+              <span class="skill-tag">IAM & RBAC</span>
+              <span class="skill-tag">Node.js</span>
+              <span class="skill-tag">Pillow / Image Pipelines</span>
+            </div>
+          </div>
+
+          <div class="skill-cat-card">
+            <h3 class="skill-cat-title">Databases & Infrastructure</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">SQLite</span>
+              <span class="skill-tag">PostgreSQL</span>
+              <span class="skill-tag">Redis</span>
+              <span class="skill-tag">Git / GitHub Actions</span>
+              <span class="skill-tag">Docker</span>
+              <span class="skill-tag">AWS (S3 / CloudFront)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="brand" style="margin-bottom: 6px;">
+          <div class="brand-badge">ET</div>
+          <span>Elvin Tsang</span>
+        </div>
+        <p class="footer-copy">Crafted with precision. Live interactive build powered by Expo Web.</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/elvintsang" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://linkedin.com/in/elvintsang" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="#demo">Interactive App</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Tab switching for architecture deep-dive
+    function switchTab(tabId) {
+      document.querySelectorAll('.arch-tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+      const targetBtn = event.currentTarget;
+      const targetContent = document.getElementById('tab-' + tabId);
+
+      if (targetBtn && targetContent) {
+        targetBtn.classList.add('active');
+        targetContent.classList.add('active');
+      }
+    }
+
+    // Reset demo iframe
+    function restartDemo() {
+      const frame = document.getElementById('app-frame');
+      if (frame) {
+        frame.src = 'demo.html?t=' + Date.now();
+      }
+    }
+  </script>
+</body>
+</html>
