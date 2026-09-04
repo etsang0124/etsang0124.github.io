@@ -567,6 +567,27 @@
       background: var(--surface);
     }
 
+    /* Twin Charts Grid */
+    .charts-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    .chart-container {
+      position: relative;
+      width: 100%;
+      height: 230px;
+    }
+
+    .cost-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
     .linear-table {
       width: 100%;
       border-collapse: collapse;
@@ -639,7 +660,9 @@
       .about-grid,
       .comparison-grid,
       .recsys-grid,
-      .metrics-grid {
+      .metrics-grid,
+      .charts-grid,
+      .cost-grid {
         grid-template-columns: 1fr;
       }
       .nav-links {
@@ -876,95 +899,223 @@
       </div>
     </section>
 
-    <!-- Section 04: Business & Financial Pro Forma -->
+    <!-- Section 04: Financial Model & Pro Forma -->
     <section id="economics">
       <div class="section-header">
-        <div class="section-eyebrow">Unit Economics & Financial Returns</div>
-        <h2 class="section-title">3-Year Pro Forma EBITDA Forecast</h2>
+        <div class="section-eyebrow">Financial Model & Unit Economics</div>
+        <h2 class="section-title">Unit Economics & Capital Trajectory</h2>
         <p class="section-desc">
-          Disintermediating NYC's $1.2B broker commission pool with software economics. The NYC FARE Act (effective 2025) shifts broker costs to landlords, creating an urgent commercial catalyst for direct listing platforms.
+          Disintermediating NYC's $1.2B broker commission pool with scalable software economics. Authentic business plan projections demonstrating operating leverage and path to profitability from initial MVP engineering to breakout cash flow.
         </p>
       </div>
 
+      <!-- Unit Economics KPI Cards -->
       <div class="metrics-grid">
+        <div class="linear-card">
+          <div class="card-body">
+            <div class="metric-val">~$1,462</div>
+            <div class="metric-label">Revenue per Leased Unit</div>
+          </div>
+        </div>
+        <div class="linear-card">
+          <div class="card-body">
+            <div class="metric-val">$50</div>
+            <div class="metric-label">COGS per Lease (ID/KYC API)</div>
+          </div>
+        </div>
+        <div class="linear-card">
+          <div class="card-body">
+            <div class="metric-val green">97%</div>
+            <div class="metric-label">Software Gross Margin</div>
+          </div>
+        </div>
         <div class="linear-card">
           <div class="card-body">
             <div class="metric-val green">$6,120</div>
             <div class="metric-label">Average Renter Savings</div>
           </div>
         </div>
+      </div>
+
+      <!-- Twin Interactive SVG Charts: Revenue Spline + Profitability J-Curve -->
+      <div class="charts-grid">
+        <!-- Chart 1: Revenue Growth -->
         <div class="linear-card">
           <div class="card-body">
-            <div class="metric-val">$350</div>
-            <div class="metric-label">Platform Fee per Leased Unit</div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px;">
+              <span style="font-size: 0.95rem; font-weight: 600; color: #ffffff;">Revenue Growth</span>
+              <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent);">Hockey-Stick Inflection</span>
+            </div>
+
+            <div class="chart-container">
+              <svg viewBox="0 0 380 200" style="width: 100%; height: 100%; overflow: visible;">
+                <defs>
+                  <linearGradient id="revGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#5e6ad2" stop-opacity="0.35"/>
+                    <stop offset="100%" stop-color="#5e6ad2" stop-opacity="0.0"/>
+                  </linearGradient>
+                </defs>
+
+                <!-- Grid lines -->
+                <line x1="45" y1="20" x2="365" y2="20" stroke="rgba(255,255,255,0.06)" stroke-dasharray="3 3"/>
+                <line x1="45" y1="75" x2="365" y2="75" stroke="rgba(255,255,255,0.06)" stroke-dasharray="3 3"/>
+                <line x1="45" y1="130" x2="365" y2="130" stroke="rgba(255,255,255,0.06)" stroke-dasharray="3 3"/>
+                <line x1="45" y1="180" x2="365" y2="180" stroke="rgba(255,255,255,0.15)"/>
+
+                <!-- Y Axis labels -->
+                <text x="40" y="24" fill="#5e636e" font-size="9" text-anchor="end" font-family="JetBrains Mono">$2.4M</text>
+                <text x="40" y="79" fill="#5e636e" font-size="9" text-anchor="end" font-family="JetBrains Mono">$1.6M</text>
+                <text x="40" y="134" fill="#5e636e" font-size="9" text-anchor="end" font-family="JetBrains Mono">$800K</text>
+                <text x="40" y="184" fill="#5e636e" font-size="9" text-anchor="end" font-family="JetBrains Mono">$0</text>
+
+                <!-- Area fill -->
+                <path d="M 85 156 Q 205 115 325 30 L 325 180 L 85 180 Z" fill="url(#revGrad)"/>
+
+                <!-- Spline Line -->
+                <path d="M 85 156 L 205 115 L 325 30" fill="none" stroke="#5e6ad2" stroke-width="2.5" stroke-linecap="round"/>
+
+                <!-- Data Points -->
+                <circle cx="85" cy="156" r="4" fill="#5e6ad2" stroke="#ffffff" stroke-width="1.5"/>
+                <text x="85" y="144" fill="#ffffff" font-size="10" font-weight="600" text-anchor="middle" font-family="JetBrains Mono">$328K</text>
+                <text x="85" y="196" fill="#8a8f98" font-size="10" text-anchor="middle" font-family="JetBrains Mono">2025</text>
+
+                <circle cx="205" cy="115" r="4" fill="#5e6ad2" stroke="#ffffff" stroke-width="1.5"/>
+                <text x="205" y="103" fill="#ffffff" font-size="10" font-weight="600" text-anchor="middle" font-family="JetBrains Mono">$1.00M</text>
+                <text x="205" y="196" fill="#8a8f98" font-size="10" text-anchor="middle" font-family="JetBrains Mono">2026</text>
+
+                <circle cx="325" cy="30" r="5" fill="#27c93f" stroke="#ffffff" stroke-width="1.5"/>
+                <text x="325" y="18" fill="#27c93f" font-size="11" font-weight="700" text-anchor="middle" font-family="JetBrains Mono">$2.30M</text>
+                <text x="325" y="196" fill="#8a8f98" font-size="10" text-anchor="middle" font-family="JetBrains Mono">2027</text>
+              </svg>
+            </div>
           </div>
         </div>
+
+        <!-- Chart 2: Profitability & Cash Flow J-Curve -->
         <div class="linear-card">
           <div class="card-body">
-            <div class="metric-val green">94%</div>
-            <div class="metric-label">Landlord Commission Reduction</div>
-          </div>
-        </div>
-        <div class="linear-card">
-          <div class="card-body">
-            <div class="metric-val">85%+</div>
-            <div class="metric-label">Software Gross Margin</div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px;">
+              <span style="font-size: 0.95rem; font-weight: 600; color: #ffffff;">Profitability & Net Cash Flow</span>
+              <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--green);">Operating Leverage</span>
+            </div>
+
+            <div class="chart-container">
+              <svg viewBox="0 0 380 200" style="width: 100%; height: 100%; overflow: visible;">
+                <!-- Grid lines -->
+                <line x1="50" y1="30" x2="365" y2="30" stroke="rgba(255,255,255,0.06)" stroke-dasharray="3 3"/>
+                <line x1="50" y1="120" x2="365" y2="120" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+                <line x1="50" y1="175" x2="365" y2="175" stroke="rgba(255,255,255,0.06)" stroke-dasharray="3 3"/>
+
+                <!-- Y Axis labels -->
+                <text x="45" y="34" fill="#5e636e" font-size="9" text-anchor="end" font-family="JetBrains Mono">+$1.0M</text>
+                <text x="45" y="124" fill="#ffffff" font-size="9" font-weight="600" text-anchor="end" font-family="JetBrains Mono">$0.00</text>
+                <text x="45" y="179" fill="#5e636e" font-size="9" text-anchor="end" font-family="JetBrains Mono">-$500K</text>
+
+                <!-- 2025: -$427K (Deficit bar down from y=120 to y=164) -->
+                <rect x="95" y="120" width="50" height="44" rx="4" fill="#2563eb"/>
+                <text x="120" y="112" fill="#8a8f98" font-size="9" font-weight="500" text-anchor="middle" font-family="JetBrains Mono">-$427K</text>
+                <text x="120" y="196" fill="#8a8f98" font-size="10" text-anchor="middle" font-family="JetBrains Mono">2025</text>
+
+                <!-- 2026: -$209K (Deficit bar down from y=120 to y=142) -->
+                <rect x="195" y="120" width="50" height="22" rx="4" fill="#3b82f6"/>
+                <text x="220" y="112" fill="#8a8f98" font-size="9" font-weight="500" text-anchor="middle" font-family="JetBrains Mono">-$209K</text>
+                <text x="220" y="196" fill="#8a8f98" font-size="10" text-anchor="middle" font-family="JetBrains Mono">2026</text>
+
+                <!-- 2027: +$964K (Profit bar up from y=120 to y=35) -->
+                <rect x="295" y="35" width="50" height="85" rx="4" fill="#93c5fd"/>
+                <text x="320" y="27" fill="#93c5fd" font-size="10" font-weight="700" text-anchor="middle" font-family="JetBrains Mono">+$964K</text>
+                <text x="320" y="196" fill="#8a8f98" font-size="10" text-anchor="middle" font-family="JetBrains Mono">2027</text>
+              </svg>
+            </div>
           </div>
         </div>
       </div>
 
+      <!-- Scalable Cost Structure & Operating Leverage Cards -->
+      <div class="cost-grid">
+        <div class="linear-card">
+          <div class="card-body">
+            <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); font-weight: 600; text-transform: uppercase;">R&D Investment</div>
+            <div style="font-size: 1.05rem; color: #ffffff; font-weight: 600; margin: 4px 0;">57% Initially</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">Engineering-heavy MVP build and recommendation engine development.</div>
+          </div>
+        </div>
+        <div class="linear-card">
+          <div class="card-body">
+            <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--green); font-weight: 600; text-transform: uppercase;">Marketing Efficiency</div>
+            <div style="font-size: 1.05rem; color: #ffffff; font-weight: 600; margin: 4px 0;">38% → 16%</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">Efficiency gains via campus ambassador networks and KOL referral virality.</div>
+          </div>
+        </div>
+        <div class="linear-card">
+          <div class="card-body">
+            <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #ffffff; font-weight: 600; text-transform: uppercase;">Lean Team</div>
+            <div style="font-size: 1.05rem; color: #ffffff; font-weight: 600; margin: 4px 0;">6–8 People</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">Lean core: frontend engineer, backend engineer, ML data lead, and ops.</div>
+          </div>
+        </div>
+        <div class="linear-card">
+          <div class="card-body">
+            <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--green); font-weight: 600; text-transform: uppercase;">COGS Leverage</div>
+            <div style="font-size: 1.05rem; color: #ffffff; font-weight: 600; margin: 4px 0;">&lt; 2% of GMV</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">Asset-light, transaction-driven cloud infrastructure with automated screening.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pro Forma Forecast Table Harmonized with BP Model -->
       <div class="table-container">
         <table class="linear-table">
           <thead>
             <tr>
-              <th>3-Year Pro Forma Forecast</th>
-              <th>Year 1 (Pilot Launch)</th>
-              <th>Year 2 (Manhattan & Brooklyn)</th>
-              <th>Year 3 (Metro Expansion)</th>
+              <th>3-Year Pro Forma Financial Model</th>
+              <th>2025 (Pilot Launch)</th>
+              <th>2026 (Manhattan & Brooklyn)</th>
+              <th>2027 (Metro Expansion)</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td><strong>Transacted Leased Units</strong></td>
-              <td>1,500 units</td>
-              <td>5,500 units</td>
-              <td>15,000 units</td>
+              <td>225 units</td>
+              <td>685 units</td>
+              <td>1,575 units</td>
             </tr>
             <tr>
               <td><strong>Gross Merchandise Volume (GMV Annual Rent)</strong></td>
-              <td>$61,200,000</td>
-              <td>$224,400,000</td>
-              <td>$612,000,000</td>
+              <td>$9,180,000</td>
+              <td>$27,948,000</td>
+              <td>$64,260,000</td>
             </tr>
             <tr>
-              <td><strong>Platform Revenue ($350 listing fee + $25 screening)</strong></td>
-              <td>$562,500</td>
-              <td>$2,062,500</td>
-              <td>$5,625,000</td>
+              <td><strong>Platform Revenue (~$1,462 Blended Take-Rate)</strong></td>
+              <td>$328,000</td>
+              <td>$1,000,000</td>
+              <td>$2,300,000</td>
             </tr>
             <tr>
-              <td><strong>Cost of Goods Sold (Hosting, KYC API, Payment Gateway)</strong></td>
-              <td>($78,000)</td>
-              <td>($268,000)</td>
-              <td>($731,000)</td>
+              <td><strong>Cost of Goods Sold (KYC/ID API, cloud, gateway @ $50/lease)</strong></td>
+              <td>($11,250)</td>
+              <td>($34,250)</td>
+              <td>($78,750)</td>
             </tr>
             <tr>
               <td><strong>Gross Profit (Gross Margin %)</strong></td>
-              <td>$484,500 (86%)</td>
-              <td>$1,794,500 (87%)</td>
-              <td>$4,894,000 (87%)</td>
+              <td>$316,750 (97%)</td>
+              <td>$965,750 (97%)</td>
+              <td>$2,221,250 (97%)</td>
             </tr>
             <tr>
-              <td><strong>Operating Expenses (Engineering, Marketing, Ops)</strong></td>
-              <td>($360,000)</td>
-              <td>($1,150,000)</td>
-              <td>($2,650,000)</td>
+              <td><strong>Operating Expenses (R&D 57%, Marketing 38%→16%, Headcount)</strong></td>
+              <td>($743,750)</td>
+              <td>($1,174,750)</td>
+              <td>($1,257,250)</td>
             </tr>
             <tr class="highlight-row">
-              <td><strong>EBITDA ($ / Margin %)</strong></td>
-              <td>$124,500 (22.1%)</td>
-              <td>$644,500 (31.2%)</td>
-              <td>$2,244,000 (39.9%)</td>
+              <td><strong>EBITDA / Net Cash Flow</strong></td>
+              <td style="color: #93c5fd;">($427,000)</td>
+              <td style="color: #93c5fd;">($209,000)</td>
+              <td style="color: var(--green);">+$964,000 (41.9% Margin)</td>
             </tr>
           </tbody>
         </table>
